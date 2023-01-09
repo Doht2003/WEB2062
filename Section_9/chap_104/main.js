@@ -20,10 +20,25 @@ const restaurant = {
         },
     },
 
-    oder: function(starterIndex, mainIndex){
+    order: function(starterIndex, mainIndex){
         return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-    }
+    },
+
+    // orderDelivery: function(obj) {
+    //     console.log(obj);
+    // }, //in ra restaurant.orderDelivery
+
+    orderDelivery: function ({ starterIndex = 1, mainIndex = 0, time = '20:00',address}) {
+        console.log(`Order received! ${this.starterMenu[starterIndex]} anh ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
+    },
 };
+
+restaurant.orderDelivery ({
+    time: '22:30',
+    address: 'Via del Sole, 21',
+    mainIndex: 2,
+    starterIndex: 2,
+});
 
 const {name, openingHours, categories} = restaurant;
 console.log(name, openingHours, categories);
@@ -46,5 +61,10 @@ const obj = { a: 23, b: 7, c: 14};
 console.log(a, b);
 
 // Đổi tượng lồng nhau
-const {fri: {open, close}} = openingHours;
-console.log(open, close);
+// const {fri: {open, close}} = openingHours;
+// console.log(open, close);
+
+const {
+    fri: { open: o, close: c},
+} = openingHours;
+console.log(o, c);
